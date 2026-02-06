@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Планер задач</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="menuToggle" class="menu-toggle">☰</button>
+
+  <div id="weekSummary" class="week-summary">
+    <div class="week-progress">
+      <label>Общий прогресс за неделю:</label>
+      <div class="horizontal-progress">
+        <div class="progress-bar" id="weekProgressBar"></div>
+        <span id="weekProgressText">0%</span>
+      </div>
+    </div>
+    <div class="day-charts">
+      <h3>Прогресс по дням</h3>
+      <div id="dayCharts" class="bar-chart"></div>
+    </div>
+  </div>
+
+  <nav id="sidebar" class="sidebar">
+    <ul>
+      <li><a href="#" data-view="planner" class="menu-link">Планер</a></li>
+      <li><a href="#" data-view="habits" class="menu-link">Трекер привычек</a></li>
+    </ul>
+  </nav>
+
+  <div id="mainContent" class="main-content">
+    <div id="plannerView" class="view active">
+      <h1>Еженедельный планер</h1>
+      <div id="daysContainer" class="days-container"></div>
+    </div>
+
+    <div id="habitsView" class="view">
+      <h2>Трекер привычек</h2>
+      
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

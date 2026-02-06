@@ -1,0 +1,282 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #8A2BE2, #FF69B4);
+  min-height: 100vh;
+  color: white;
+  overflow-x: hidden;
+}
+
+.menu-toggle {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  z-index: 100;
+}
+
+.week-summary {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 10px;
+  z-index: 90;
+  width: 200px;
+}
+
+.week-progress {
+  margin-bottom: 20px;
+}
+
+.horizontal-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-bar {
+  height: 20px;
+  background: #eee;
+  border-radius: 10px;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.progress-bar::after {
+  content: '';
+  display: block;
+  height: 100%;
+  width: var(--value, 0%);
+  background: #4CAF50;
+  transition: width 0.3s;
+}
+
+.bar-chart {
+  display: flex;
+  justify-content: space-around;
+  height: 80px;
+  margin-top: 10px;
+  align-items: flex-end;
+}
+
+.bar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20px;
+  position: relative;
+  height: 100%;
+}
+
+.bar {
+  width: 100%;
+  background: #4CAF50;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.bar-label {
+  margin-top: 5px;
+  font-size: 12px;
+  position: absolute;
+  top: 88%;
+  transform: translateY(5px);
+  white-space: nowrap;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  transition: left 0.3s ease;
+  z-index: 99;
+  padding-top: 60px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  padding: 0; 
+}
+
+.menu-link {
+  color: white;
+  text-decoration: none;
+  display: block;
+  font-size: 18px;
+  padding: 15px 20px;
+  width: 100%; 
+  box-sizing: border-box; 
+}
+
+.menu-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.main-content {
+  margin-top: 150px;
+  padding: 30px;
+  transition: margin-left 0.3s ease;
+}
+
+.days-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.day-container {
+  width: 250px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.day-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: white;
+  text-align: center;
+}
+
+.task-list {
+  list-style-type: none;
+  padding-left: 0;
+  flex-grow: 1;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.task-item input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2);
+  accent-color: #4CAF50;
+}
+
+.task-item span {
+  flex-grow: 1;
+  transition: text-decoration 0.3s ease, color 0.3s ease;
+}
+
+.task-item.completed span {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.task-input {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+
+.habits-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  overflow-x: auto; 
+}
+
+.habits-table th,
+.habits-table td {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 5px;
+  text-align: center;
+}
+
+.habits-table th {
+  background-color: rgba(0, 0, 0, 0.2);
+  vertical-align: top; 
+}
+
+.habits-table input[type="checkbox"] {
+  transform: scale(1.2);
+  accent-color: #4CAF50;
+}
+
+.week-circle-container {
+  display: inline-block;
+  margin: 5px 0;
+  width: 100px; 
+  text-align: center; 
+}
+
+.week-circle-container svg {
+  display: block;
+  margin: 0 auto; 
+}
+
+.circle-bg {
+  stroke: rgba(255, 255, 255, 0.3);
+}
+
+.circle-fill {
+  stroke: #4CAF50;
+  stroke-linecap: round;
+  transform-origin: center;
+  transform: rotate(-90deg);
+  transition: stroke-dashoffset 0.5s ease-in-out;
+  stroke-width: 10; 
+}
+
+.circle-text {
+  font-size: 12px;
+  font-weight: bold;
+  fill: white; 
+}
